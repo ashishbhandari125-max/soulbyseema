@@ -4,11 +4,13 @@ import CursorParticles from "@/components/CursorParticles";
 import OmLoader from "@/components/OmLoader";
 import { Toaster } from "@/components/ui/sonner";
 import Admin from "@/pages/Admin";
+import Brochure from "@/pages/Brochure";
 import Home from "@/pages/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   RouterProvider,
+  createHashHistory,
   createRootRoute,
   createRoute,
   createRouter,
@@ -16,6 +18,8 @@ import {
 import { useState } from "react";
 
 const queryClient = new QueryClient();
+
+const hashHistory = createHashHistory();
 
 const rootRoute = createRootRoute({
   component: () => <Outlet />,
@@ -33,8 +37,18 @@ const adminRoute = createRoute({
   component: Admin,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, adminRoute]);
-const router = createRouter({ routeTree });
+const brochureRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/brochure",
+  component: Brochure,
+});
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  adminRoute,
+  brochureRoute,
+]);
+const router = createRouter({ routeTree, history: hashHistory });
 
 declare module "@tanstack/react-router" {
   interface Register {

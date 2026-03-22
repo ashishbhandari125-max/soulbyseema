@@ -16,12 +16,14 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
+const WHATSAPP_NUMBER = "919999885995";
+
 const SERVICES = [
-  "Reiki Healing",
+  "Online Reiki Healing Session",
   "Angel Card Reading",
-  "Aura Cleaning & Healing",
+  "Aura Cleansing & Energy Balancing",
   "Guided Meditation",
-  "Past Life Regression",
+  "Past Life Regression Therapy (PLRT)",
   "Photo Reading",
   "Home & Space Energy Clearing",
   "Crystal Remedies",
@@ -29,7 +31,7 @@ const SERVICES = [
   "Spirit Release",
   "Spirit Protection",
   "Psychic Surgery",
-  "Tarot Card Reading",
+  "Professional Tarot & Angel Card Reading",
   "Hypnosis",
   "Chakra Balancing",
 ];
@@ -69,7 +71,7 @@ export default function AppointmentPopup({ open, onClose }: Props) {
       .filter(Boolean)
       .join("\n");
 
-    const url = `https://wa.me/919XXXXXXXXX?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     onClose();
   };
@@ -86,7 +88,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
         }}
         data-ocid="appointment.dialog"
       >
-        {/* Header */}
         <div
           className="px-7 pt-7 pb-4"
           style={{ borderBottom: "1px solid rgba(201,162,74,0.18)" }}
@@ -115,13 +116,11 @@ export default function AppointmentPopup({ open, onClose }: Props) {
           </DialogHeader>
         </div>
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="px-7 py-5 space-y-4"
           style={{ maxHeight: "70vh", overflowY: "auto" }}
         >
-          {/* Full Name */}
           <div className="space-y-1.5">
             <Label
               className="text-xs font-medium tracking-widest uppercase"
@@ -139,7 +138,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             />
           </div>
 
-          {/* DOB & TOB */}
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1.5">
               <Label
@@ -180,7 +178,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             </div>
           </div>
 
-          {/* Place of Birth */}
           <div className="space-y-1.5">
             <Label
               className="text-xs font-medium tracking-widest uppercase"
@@ -198,7 +195,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             />
           </div>
 
-          {/* Service */}
           <div className="space-y-1.5">
             <Label
               className="text-xs font-medium tracking-widest uppercase"
@@ -238,7 +234,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             </Select>
           </div>
 
-          {/* Preferred Date */}
           <div className="space-y-1.5">
             <Label
               className="text-xs font-medium tracking-widest uppercase"
@@ -256,7 +251,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             />
           </div>
 
-          {/* Message */}
           <div className="space-y-1.5">
             <Label
               className="text-xs font-medium tracking-widest uppercase"
@@ -280,7 +274,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="btn-gold w-full justify-center text-sm mt-2"
@@ -296,7 +289,6 @@ export default function AppointmentPopup({ open, onClose }: Props) {
             Send Booking Request via WhatsApp
           </button>
 
-          {/* Note */}
           <p
             className="text-center text-xs pb-1"
             style={{ color: "rgba(242,237,247,0.35)" }}

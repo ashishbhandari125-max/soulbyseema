@@ -96,6 +96,8 @@ function getOrbBg(type: number, opacity: number) {
 
 const orbKeys = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
+const WHATSAPP_NUMBER = "919999885995";
+
 export default function HeroSection() {
   const [bookingOpen, setBookingOpen] = useState(false);
 
@@ -103,8 +105,7 @@ export default function HeroSection() {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const whatsappUrl =
-    "https://wa.me/919XXXXXXXXX?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session";
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session`;
 
   return (
     <section
@@ -114,7 +115,6 @@ export default function HeroSection() {
           "linear-gradient(135deg, #12061E 0%, #1A0A2A 40%, #07162F 100%)",
       }}
     >
-      {/* Background orbs */}
       {orbs.map((orb, i) => (
         <div
           key={orbKeys[i]}
@@ -130,7 +130,6 @@ export default function HeroSection() {
         />
       ))}
 
-      {/* Sacred geometry background pattern */}
       <div
         className="absolute inset-0 pointer-events-none opacity-5"
         style={{
@@ -140,7 +139,6 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Sacred Lotus — right side, behind content */}
       <div
         className="absolute top-1/2 -translate-y-1/2 pointer-events-none lotus-hero-pos"
         style={{ zIndex: 1 }}
@@ -148,7 +146,6 @@ export default function HeroSection() {
         <SacredLotus />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-in"
@@ -175,8 +172,8 @@ export default function HeroSection() {
           className="text-soul-gold text-base sm:text-lg md:text-xl font-medium tracking-wide mb-4 animate-fade-in-up"
           style={{ animationDelay: "0.25s" }}
         >
-          Reiki Grandmaster &nbsp;·&nbsp; Angel Card Reading &nbsp;·&nbsp; Aura
-          Healing &nbsp;·&nbsp; Past Life Regression
+          Spiritual Wellness Coach Online &nbsp;·&nbsp; Online Reiki Healing
+          Sessions &nbsp;·&nbsp; Aura Cleansing &amp; Energy Balancing
         </p>
 
         <p
@@ -191,7 +188,6 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
           style={{ animationDelay: "0.45s" }}
         >
-          {/* Primary CTA — Appointment Popup */}
           <button
             type="button"
             onClick={() => setBookingOpen(true)}
@@ -201,7 +197,6 @@ export default function HeroSection() {
             🪷 Book Appointment
           </button>
 
-          {/* Secondary — WhatsApp direct */}
           <a
             href={whatsappUrl}
             target="_blank"
@@ -225,7 +220,6 @@ export default function HeroSection() {
             type="button"
             onClick={scrollToServices}
             className="btn-glass text-base"
-            data-ocid="hero.secondary_button"
           >
             Explore Services
           </button>

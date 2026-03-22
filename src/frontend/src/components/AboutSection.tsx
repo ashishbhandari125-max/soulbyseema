@@ -22,11 +22,11 @@ const CHAKRA_COLORS = [
 ];
 
 const expertiseItems = [
-  { icon: Sparkles, label: "Reiki (All Levels)" },
+  { icon: Sparkles, label: "Online Reiki Healing Sessions" },
   { icon: Star, label: "Angel Card Reading" },
-  { icon: Wind, label: "Aura Cleaning" },
+  { icon: Wind, label: "Aura Cleansing & Energy Balancing" },
   { icon: Moon, label: "Guided Meditation" },
-  { icon: Clock, label: "Past Life Regression" },
+  { icon: Clock, label: "Past Life Regression Therapy (PLRT)" },
   { icon: Camera, label: "Photo Reading" },
   { icon: HomeIcon, label: "Home & Space Energy Clearing" },
 ];
@@ -342,7 +342,6 @@ export default function AboutSection() {
                 className="relative flex items-center justify-center"
                 style={{ width: 340, height: 340 }}
               >
-                {/* Dark radial background */}
                 <div
                   className="absolute inset-0 rounded-full"
                   style={{
@@ -353,7 +352,6 @@ export default function AboutSection() {
                   }}
                 />
 
-                {/* 7 Chakra rotating rings */}
                 {RINGS.map((ring) => (
                   <div
                     key={ring.size}
@@ -374,7 +372,6 @@ export default function AboutSection() {
                   />
                 ))}
 
-                {/* SVG Mandala */}
                 <div
                   className="absolute"
                   style={{
@@ -388,7 +385,6 @@ export default function AboutSection() {
                   <ColorfulMandalaSVG />
                 </div>
 
-                {/* 6 Orbiting orbs — wrapper rotates, inner div translates */}
                 {ORBS.map((orb) => (
                   <div
                     key={orb.id}
@@ -414,7 +410,6 @@ export default function AboutSection() {
                   </div>
                 ))}
 
-                {/* Center OM symbol */}
                 <div
                   style={{
                     position: "absolute",
@@ -442,19 +437,19 @@ export default function AboutSection() {
                 About
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-semibold text-soul-text-muted mb-4 leading-tight">
-                About Seema
+                Spiritual Wellness Coach Online
               </h2>
               <p className="text-soul-gold italic text-lg mb-6">
                 Namaste 🙏 — Welcome to your healing journey
               </p>
               <p className="text-soul-text-muted leading-relaxed text-base mb-5">
-                Seema is a certified <strong>Reiki Grandmaster</strong> — having
-                cleared all levels of Reiki mastery — with over 15 years of
-                experience in spiritual healing arts. Her journey began with a
-                profound personal awakening that led her to study under revered
-                masters across India, and she has since dedicated her life to
-                helping souls heal, transform, and reconnect with their inner
-                light.
+                Seema is a certified <strong>Reiki Grandmaster</strong> and{" "}
+                <strong>Spiritual Wellness Coach</strong> — having cleared all
+                levels of Reiki mastery — with over 15 years of experience in
+                spiritual healing arts. Her journey began with a profound
+                personal awakening that led her to study under revered masters
+                across India, and she has since dedicated her life to helping
+                souls heal, transform, and reconnect with their inner light.
               </p>
               <p className="text-soul-text-muted leading-relaxed text-base mb-8">
                 With a rare combination of intuitive gifts and deep spiritual

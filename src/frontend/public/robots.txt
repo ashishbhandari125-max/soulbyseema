@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Sitemaps
+Sitemap: https://www.soulbyseema.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

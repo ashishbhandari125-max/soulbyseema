@@ -17,6 +17,8 @@ import {
   Wind,
 } from "lucide-react";
 
+const WHATSAPP_NUMBER = "919999885995";
+
 type Category = "Healing" | "Protection" | "Divination" | "Mind" | "Core";
 
 const categoryBadge: Record<
@@ -68,9 +70,9 @@ const services: {
 }[] = [
   {
     icon: Sparkles,
-    title: "Reiki Healing (All Levels)",
-    desc: "Channel divine life force energy (prana shakti) to heal body, mind & soul at every level.",
-    wa: "Reiki%20Healing",
+    title: "Online Reiki Healing Sessions",
+    desc: "Channel divine life force energy (prana shakti) to heal body, mind & soul at every level. Available as distance healing worldwide.",
+    wa: "Online%20Reiki%20Healing%20Session",
     category: "Core",
   },
   {
@@ -82,9 +84,9 @@ const services: {
   },
   {
     icon: Wind,
-    title: "Aura Cleaning",
-    desc: "Cleanse and restore your energy field (aura), removing blocks and negativity that dim your light.",
-    wa: "Aura%20Cleaning",
+    title: "Aura Cleansing & Energy Balancing",
+    desc: "Cleanse and restore your energy field (aura), removing blocks and negativity. Restore harmony and vitality through complete energy balancing.",
+    wa: "Aura%20Cleansing%20and%20Energy%20Balancing",
     category: "Core",
   },
   {
@@ -96,9 +98,9 @@ const services: {
   },
   {
     icon: Clock,
-    title: "Past Life Regression",
-    desc: "Explore your soul's journey across lifetimes to heal present patterns and find deep liberation.",
-    wa: "Past%20Life%20Regression",
+    title: "Past Life Regression Therapy (PLRT)",
+    desc: "Explore your soul's journey across lifetimes to heal present patterns and find deep liberation. PLRT helps remove life blocks at their root.",
+    wa: "Past%20Life%20Regression%20Therapy",
     category: "Core",
   },
   {
@@ -165,9 +167,9 @@ const services: {
   },
   {
     icon: LayoutGrid,
-    title: "Tarot Card Reading",
-    desc: "Illuminate your path with the ancient wisdom of Tarot. Gain clarity on love, career, relationships and life purpose.",
-    wa: "Tarot%20Card%20Reading",
+    title: "Professional Tarot & Angel Card Reading",
+    desc: "Illuminate your path with professional Tarot and Angel Card reading. Gain clarity on love, career, relationships and life purpose.",
+    wa: "Professional%20Tarot%20and%20Angel%20Card%20Reading",
     category: "Divination",
     isNew: true,
   },
@@ -195,7 +197,6 @@ export default function ServicesSection() {
       ref={ref}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <div className="text-center mb-16 reveal">
           <p className="text-soul-gold font-medium tracking-widest uppercase text-sm mb-3">
             Our Services
@@ -208,7 +209,6 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map(
             ({ icon: Icon, title, desc, wa, category, isNew }, i) => {
@@ -218,7 +218,6 @@ export default function ServicesSection() {
                   key={title}
                   className={`glass-card p-6 flex flex-col reveal reveal-delay-${Math.min(i + 1, 6)} relative`}
                 >
-                  {/* Category badge top-right */}
                   {category !== "Core" && (
                     <span
                       className="absolute top-4 right-4 text-[10px] font-semibold tracking-wide px-2 py-0.5 rounded-full"
@@ -242,7 +241,6 @@ export default function ServicesSection() {
                     {title}
                   </h3>
 
-                  {/* Consultation & Course badge for new services */}
                   {isNew && (
                     <p
                       className="text-[11px] italic mb-3"
@@ -257,7 +255,7 @@ export default function ServicesSection() {
                     {desc}
                   </p>
                   <a
-                    href={`https://wa.me/919XXXXXXXXX?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session%20for%20${wa}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session%20for%20${wa}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gold text-sm mt-5 justify-center"
