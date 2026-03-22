@@ -2,6 +2,7 @@ import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import CoursesSection from "@/components/CoursesSection";
 import DailySacredMessage from "@/components/DailySacredMessage";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
@@ -10,6 +11,7 @@ import Navigation from "@/components/Navigation";
 import PaymentSection from "@/components/PaymentSection";
 import ServicesSection from "@/components/ServicesSection";
 import SoulReadingQuiz from "@/components/SoulReadingQuiz";
+import StickyBookButton from "@/components/StickyBookButton";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
@@ -23,11 +25,13 @@ export default function Home() {
       <MoonPhaseWidget />
       <CoursesSection />
       <TestimonialsSection />
+      <FAQSection />
       <SoulReadingQuiz />
       <HowItWorksSection />
       <ContactSection />
       <PaymentSection />
       <Footer />
+      <StickyBookButton />
     </div>
   );
 }

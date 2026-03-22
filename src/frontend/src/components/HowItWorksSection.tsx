@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
             Ready to begin your healing journey?
           </p>
           <a
-            href="https://wa.me/919XXXXXXXXX?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session"
+            href="https://wa.me/919999885995?text=Namaste%20Seema%20ji%2C%20I%20would%20like%20to%20book%20a%20session"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold text-base"

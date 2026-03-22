@@ -224,6 +224,17 @@ export default function HeroSection() {
             Explore Services
           </button>
         </div>
+
+        <p
+          className="text-xs italic mt-5 animate-fade-in-up"
+          style={{
+            animationDelay: "0.6s",
+            color: "rgba(201,162,74,0.55)",
+            letterSpacing: "0.02em",
+          }}
+        >
+          ✦ Limited sessions available this month — secure yours today
+        </p>
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-soul-gold/50">

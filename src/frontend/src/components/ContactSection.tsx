@@ -10,7 +10,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useSubmitEnquiry } from "@/hooks/useQueries";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Clock, Loader2, Mail, Phone } from "lucide-react";
+import { Loader2, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 
 const serviceOptions = [
@@ -163,10 +163,28 @@ export default function ContactSection() {
                       soulbyseema.official@gmail.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-soul-text-muted text-sm">
-                    <Clock size={15} style={{ color: "#C9A24A" }} />
-                    <span>Monday – Saturday, 9 AM – 7 PM IST</span>
-                  </div>
+                  <p className="text-soul-text-muted text-sm leading-relaxed pt-1">
+                    Simply drop us an email at{" "}
+                    <a
+                      href="mailto:soulbyseema.official@gmail.com"
+                      style={{ color: "#C9A24A" }}
+                      className="hover:underline"
+                    >
+                      soulbyseema.official@gmail.com
+                    </a>
+                    , use our booking form, or WhatsApp us at{" "}
+                    <a
+                      href="https://wa.me/919999885995"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#C9A24A" }}
+                      className="hover:underline"
+                    >
+                      +91 9999885995
+                    </a>{" "}
+                    -- and we&apos;ll get back to you within 24 hours to find a
+                    time that works perfectly for you.
+                  </p>
                 </div>
               </div>
 

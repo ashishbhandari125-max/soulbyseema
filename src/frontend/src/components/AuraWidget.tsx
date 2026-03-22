@@ -75,8 +75,8 @@ export default function AuraWidget() {
     <div
       style={{
         position: "fixed",
-        bottom: "24px",
-        left: "24px",
+        bottom: "88px", // above the sound button (54px height + 24px gap + 10px)
+        right: "20px",
         zIndex: 1000,
         fontFamily: "inherit",
       }}
