@@ -1,4 +1,3 @@
-import type { Enquiry } from "@/backend";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import type { Enquiry } from "@/hooks/useQueries";
 import {
   useDeleteEnquiry,
   useGetEnquiries,
@@ -165,7 +165,7 @@ function AdminDashboard() {
                         </span>
                       </TableCell>
                       <TableCell className="text-xs text-gray-500">
-                        {formatDate(enq.timestamp)}
+                        {formatDate(enq.createdAt)}
                       </TableCell>
                       <TableCell>
                         <Badge

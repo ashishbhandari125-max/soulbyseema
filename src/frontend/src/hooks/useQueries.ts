@@ -1,6 +1,33 @@
-import type { Enquiry } from "@/backend";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useActor } from "./useActor";
+
+export interface Enquiry {
+  id: bigint;
+  name: string;
+  email: string;
+  country: string;
+  phone: string;
+  service: string;
+  timezone: string;
+  message: string;
+  status: string;
+  createdAt: bigint;
+}
+
+interface EnquiryActor {
+  getEnquiries: () => Promise<Enquiry[]>;
+  submitEnquiry: (
+    name: string,
+    email: string,
+    country: string,
+    phone: string,
+    service: string,
+    timezone: string,
+    message: string,
+  ) => Promise<void>;
+  updateEnquiryStatus: (id: bigint, status: string) => Promise<void>;
+  deleteEnquiry: (id: bigint) => Promise<void>;
+}
 
 export function useGetEnquiries() {
   const { actor, isFetching } = useActor();
@@ -8,7 +35,7 @@ export function useGetEnquiries() {
     queryKey: ["enquiries"],
     queryFn: async () => {
       if (!actor) return [];
-      return actor.getEnquiries();
+      return (actor as unknown as EnquiryActor).getEnquiries();
     },
     enabled: !!actor && !isFetching,
   });
@@ -27,7 +54,7 @@ export function useSubmitEnquiry() {
       message: string;
     }) => {
       if (!actor) throw new Error("Not connected");
-      return actor.submitEnquiry(
+      return (actor as unknown as EnquiryActor).submitEnquiry(
         data.name,
         data.email,
         data.country,
@@ -46,7 +73,7 @@ export function useUpdateEnquiryStatus() {
   return useMutation({
     mutationFn: async ({ id, status }: { id: bigint; status: string }) => {
       if (!actor) throw new Error("Not connected");
-      return actor.updateEnquiryStatus(id, status);
+      return (actor as unknown as EnquiryActor).updateEnquiryStatus(id, status);
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["enquiries"] }),
   });
@@ -58,7 +85,7 @@ export function useDeleteEnquiry() {
   return useMutation({
     mutationFn: async (id: bigint) => {
       if (!actor) throw new Error("Not connected");
-      return actor.deleteEnquiry(id);
+      return (actor as unknown as EnquiryActor).deleteEnquiry(id);
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["enquiries"] }),
   });

@@ -28,7 +28,7 @@ export const Enquiry = IDL.Record({
 });
 
 export const idlService = IDL.Service({
-  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  '_initializeAccessControl' : IDL.Func([], [], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
   'deleteEnquiry' : IDL.Func([IDL.Nat], [], []),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
@@ -73,7 +73,7 @@ export const idlFactory = ({ IDL }) => {
   });
   
   return IDL.Service({
-    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    '_initializeAccessControl' : IDL.Func([], [], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
     'deleteEnquiry' : IDL.Func([IDL.Nat], [], []),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),

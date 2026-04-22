@@ -14,7 +14,6 @@ export default function StickyBookButton() {
       setVisible(scrollY > 80 && !nearBottom);
     };
 
-    // Check on mount too
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,13 +22,14 @@ export default function StickyBookButton() {
   return (
     <>
       <div
+        aria-hidden={!visible}
         style={{
           position: "fixed",
           bottom: "1.5rem",
           left: "1.5rem",
-          zIndex: 9999,
+          zIndex: 40,
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(16px)",
+          transform: visible ? "translateY(0)" : "translateY(14px)",
           transition: "opacity 0.4s ease, transform 0.4s ease",
           pointerEvents: visible ? "auto" : "none",
         }}
@@ -37,27 +37,31 @@ export default function StickyBookButton() {
         <button
           type="button"
           onClick={() => setBookingOpen(true)}
+          aria-label="Book a healing session"
+          data-ocid="sticky.open_modal_button"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "0.4rem",
-            padding: "0.6rem 1.2rem",
+            gap: "0.45rem",
+            padding: "0.6rem 1.25rem",
             borderRadius: "9999px",
-            background: "rgba(201,162,74,0.18)",
-            border: "1.5px solid rgba(201,162,74,0.6)",
+            background: "rgba(18,6,30,0.82)",
+            border: "1.5px solid rgba(201,162,74,0.55)",
             color: "#F0D080",
-            fontSize: "0.85rem",
+            fontSize: "0.82rem",
             fontWeight: 600,
             letterSpacing: "0.04em",
             cursor: "pointer",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
             boxShadow:
-              "0 4px 24px rgba(201,162,74,0.25), 0 0 0 1px rgba(201,162,74,0.1)",
+              "0 4px 24px rgba(201,162,74,0.22), 0 0 0 1px rgba(201,162,74,0.08)",
             whiteSpace: "nowrap",
           }}
         >
-          <span>🪷</span>
+          <span role="img" aria-hidden="true">
+            🪷
+          </span>
           <span>Book a Session</span>
         </button>
       </div>

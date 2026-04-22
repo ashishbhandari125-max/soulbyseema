@@ -7,8 +7,8 @@ import Time "mo:core/Time";
 import Iter "mo:core/Iter";
 import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
-import MixinAuthorization "authorization/MixinAuthorization";
-import AccessControl "authorization/access-control";
+import MixinAuthorization "mo:caffeineai-authorization/MixinAuthorization";
+import AccessControl "mo:caffeineai-authorization/access-control";
 
 actor {
   type Enquiry = {

@@ -1,0 +1,35 @@
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfile = record {name: text;};
+type Enquiry = 
+ record {
+   country: text;
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   "service": text;
+   status: text;
+   timestamp: int;
+   timezone: text;
+ };
+service : {
+  _initializeAccessControl: () -> ();
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  deleteEnquiry: (id: nat) -> ();
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getEnquiries: () -> (vec Enquiry) query;
+  getEnquiryCount: () -> (nat) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  isCallerAdmin: () -> (bool) query;
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  submitEnquiry: (name: text, email: text, country: text, phone: text,
+   "service": text, timezone: text, message: text) -> (nat);
+  updateEnquiryStatus: (id: nat, status: text) -> ();
+}
