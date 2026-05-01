@@ -58178,8 +58178,25 @@ function RouterProvider({ router: router2, ...rest }) {
 }
 const queryClient$1 = new QueryClient();
 const hashHistory = createHashHistory();
+function TitleUpdater() {
+  const location2 = useRouterState({ select: (s2) => s2.location });
+  reactExports.useEffect(() => {
+    const path = location2.pathname;
+    if (path === "/admin") {
+      document.title = "Admin Panel | Soul by Seema";
+    } else if (path === "/brochure") {
+      document.title = "Brochure | Soul by Seema";
+    } else {
+      document.title = "Soul by Seema | Spiritual Healer & Wellness Coach";
+    }
+  }, [location2.pathname]);
+  return null;
+}
 const rootRoute = createRootRoute({
-  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
+  component: () => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TitleUpdater, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
+  ] })
 });
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,

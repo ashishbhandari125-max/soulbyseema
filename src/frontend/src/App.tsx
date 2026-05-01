@@ -14,15 +14,36 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  useRouterState,
 } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const queryClient = new QueryClient();
 
 const hashHistory = createHashHistory();
 
+function TitleUpdater() {
+  const location = useRouterState({ select: (s) => s.location });
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/admin") {
+      document.title = "Admin Panel | Soul by Seema";
+    } else if (path === "/brochure") {
+      document.title = "Brochure | Soul by Seema";
+    } else {
+      document.title = "Soul by Seema | Spiritual Healer & Wellness Coach";
+    }
+  }, [location.pathname]);
+  return null;
+}
+
 const rootRoute = createRootRoute({
-  component: () => <Outlet />,
+  component: () => (
+    <>
+      <TitleUpdater />
+      <Outlet />
+    </>
+  ),
 });
 
 const indexRoute = createRoute({
